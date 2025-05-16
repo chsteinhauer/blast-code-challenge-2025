@@ -4,16 +4,23 @@ import { useEffect, useState } from "react";
 import { MatchData, ParseFile } from "./components/parser";
 import { Table } from "./components/table";
 import { Accordion } from "@/pages/components/accordion";
+import { useRouter } from "next/router";
 
 
 export default function Home() {
   const [ matchData, setMatchData ] = useState<MatchData>();
 
+  const router = useRouter();
+
   useEffect(() => {
-    //const isProd = process.env.NODE_ENV === 'production';
+    const isProd = process.env.NODE_ENV === 'production';
+
+    if (isProd) {
+      router.replace("/blast-code-challenge-2025/");
+    }
 
     async function fetchMatchData() {
-      const data = await ParseFile("/blast-code-challenge-2025/data/csgo.txt")
+      const data = await ParseFile("csgo.txt")
       setMatchData(data);
     }
 
