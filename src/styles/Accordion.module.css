@@ -1,0 +1,81 @@
+
+
+.accordion_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  /* Style the buttons that are used to open and close the accordion panel */
+  .accordion {
+    background-color: var(--background-95);
+    color: white;
+    cursor: pointer;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    outline: none;
+    transition: background-color 0.6s ease;
+    border-bottom: 1px solid var(--background-90);
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .accordion:hover,
+  .active {
+    background-color: var(--background-90);
+  }
+  
+  /* Style the accordion content title */
+  .accordion_title {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+
+    width: 100px;
+  }
+
+  .accordion_teams {
+    font-size: 14px;
+    font-weight: 600;
+    color: white
+  }
+
+  .accordion_team {
+    color: var(--primary-color);
+    margin-right: 15px;
+    font-size: 13;
+  }
+
+  .accordion_time {
+    
+    font-size: 13;
+  }
+  
+  /* Style the accordion chevron icon */
+  .accordion_button {
+    width: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Style to rotate icon when state is active */
+  .rotate {
+    transform: rotate(90deg);
+  }
+  
+  /* Style the accordion content panel. Note: hidden by default */
+  .accordion_content {
+    background-color: var(--background-100);
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  /* Style the accordion content text */
+  .accordion_text {
+    font-weight: 400;
+    font-size: 14px;
+    padding: 18px;
+    font-family: TT Norms Pro, sans-serif;
+  }
