@@ -8,8 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d out"
+    "deploy": "npm run build && npm run export && touch ./out/.nojekyll && gh-pages -d out -t true"
   },
   "dependencies": {
     "@fortawesome/fontawesome-common-types": "^6.7.2",
