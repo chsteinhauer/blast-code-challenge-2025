@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import { useEffect, useState } from "react";
-import { MatchData, ParseFile } from "./components/parser";
+import { MatchData, MatchRound, ParseFile } from "./components/parser";
 import { Table } from "./components/table";
 import { Accordion } from "@/pages/components/accordion";
 import { useRouter } from "next/router";
@@ -27,6 +27,15 @@ export default function Home() {
     fetchMatchData()
   }, [])
 
+
+  const getAverageRoundTime = (rounds?: MatchRound[]) => {
+    if (!rounds) return;
+
+    const time = rounds.map(r => r.end.getTime() - r.start.getTime()).reduce((a,b) => a+b);
+
+    return new Date(time / rounds.length).toISOString().substr(11, 8);
+  }
+
   return (
     <>
       <Head>
@@ -40,7 +49,10 @@ export default function Home() {
         <div className={styles.main_title}>Counter-Strike Match</div>
           <div className={styles.main_sub_title}>{matchData?.teamA.name + " vs " + matchData?.teamB.name}</div>
           <div className={styles.accordion_group}>
-            {/* <Table data={matchData} /> */}
+            
+            <div className={styles.avg_time}>
+              Avg. round time: {getAverageRoundTime(matchData?.rounds)}
+            </div>
             
             { matchData && matchData.rounds?.map((r) => (
               <Accordion key={r.round} round={r}> 
