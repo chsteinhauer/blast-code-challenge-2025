@@ -1,9 +1,9 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import { useEffect, useState } from "react";
-import { MatchData, ParseFile } from "../components/parser";
-import { Table } from "../components/table";
-import { Accordion } from "@/components/accordion";
+import { MatchData, ParseFile } from "./components/parser";
+import { Table } from "./components/table";
+import { Accordion } from "@/pages/components/accordion";
 
 
 export default function Home() {

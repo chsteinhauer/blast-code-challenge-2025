@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Attack, MatchRound, Player } from "./parser";
 import styles from "@/styles/Table.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 
 type PlayerKills = {
@@ -29,13 +31,13 @@ export function Table(props: {round: MatchRound, players: Player[]}) {
                     { data?.map(pk => (
                         <tr key={pk.player.name}>
                             <td className={styles.table_user}>
-                                {/* <FontAwesomeIcon icon="fa-solid fa-user" /> {pk.player.name} */}
+                                 <FontAwesomeIcon icon={"fa-solid fa-user" as IconProp} /> {pk.player.name}
                             </td>
                             <td className={styles.table_team}>
                                 {"<" + pk.kills[0].attackerTeam + ">"}
                             </td>
                             <td className={styles.table_kills}>
-                                {/* <FontAwesomeIcon icon="fa-solid fa-skull" /> {pk.kills.length} */}
+                                <FontAwesomeIcon icon={"fa-solid fa-skull" as IconProp} /> {pk.kills.length} 
                             </td>
                         </tr>
                     )) }
