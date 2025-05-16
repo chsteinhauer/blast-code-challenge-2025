@@ -10,8 +10,10 @@ export default function Home() {
   const [ matchData, setMatchData ] = useState<MatchData>();
 
   useEffect(() => {
+    const isProd = process.env.NODE_ENV === 'production';
+
     async function fetchMatchData() {
-      const data = await ParseFile("/data/csgo.txt")
+      const data = await ParseFile((isProd ? "/blast-code-challenge-2025/" : "") + "/data/csgo.txt")
       setMatchData(data);
     }
 
