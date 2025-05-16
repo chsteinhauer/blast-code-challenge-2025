@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "export": "next export",
     "deploy": "npm run build && npm run export && touch ./out/.nojekyll && gh-pages -d out -t true"
   },
   "dependencies": {
@@ -18,7 +19,8 @@
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-datetime": "^3.3.1",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "touch-cli": "^0.0.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
