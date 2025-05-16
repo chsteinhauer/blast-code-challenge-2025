@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
     unoptimized: true, // Disable default image optimization
   },
   assetPrefix: isProd ? '/blast-code-challenge-2025/' : '',
-  basePath: isProd ? '/blast-code-challenge-2025/' : '',
+  basePath: isProd ? '/blast-code-challenge-2025' : '',
   output: "export"
 };
 
